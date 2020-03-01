@@ -1,4 +1,5 @@
 import sys
+import re
 
 args = sys.argv
 if len (args) < 2:
@@ -10,7 +11,11 @@ elif len (args) > 2:
 fd = open(args[1], 'r')
 contains = fd.read()
 fd.close
-numbers = [int(num) for num in contains.split('\n')]
+regulars = re.findall(r"\d{0,}\n", contains)
+if len(regulars) == 0:
+    print("Error: no numbers")
+    exit(0)
+numbers = [int(num) for num in regulars]
 
 #нормальное человеческое решение
 #import numpy as np

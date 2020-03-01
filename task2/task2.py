@@ -14,6 +14,10 @@ fd.close
 
 points = re.findall(r"(\D):", contains)
 coordinates = re.findall(r"\d{0,},\d{0,},\d{0,}", contains)
+if len(points) < 6 or len(coordinates) < 6:
+	print("Error, wrong format")
+	exit(0)
+
 numbers = []
 for string in coordinates:
     numbers.append([int(num) for num in string.split(',')])

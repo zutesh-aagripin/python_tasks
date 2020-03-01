@@ -11,6 +11,10 @@ elif len (args) > 3:
 s1 = args[1]
 s2 = args[2]
 
+if len(s1) == 0 or len(s2) == 0:
+	print ("empty string")
+	exit(0)
+
 def detailedcheck(s1, s2):
 	i = 0
 	j = 0;
@@ -40,9 +44,9 @@ def detailedcheck(s1, s2):
 		return "KO"
 	return "OK"
 
-#if s1 == s2:
-#	print("OK")
-#elif s1 != s2 and "*" not in s2:
-#	print("KO")
-#elif "*" in s2 and s1 != s2:
-print(detailedcheck(s1, s2))
+if s1 == s2:
+	print("OK")
+elif s1 != s2 and "*" not in s2:
+	print("KO")
+elif "*" in s2 and s1 != s2:
+	print(detailedcheck(s1, s2))
